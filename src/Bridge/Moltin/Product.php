@@ -11,7 +11,7 @@ class Product implements \KickAss\Commerce\Application\ProductInterface
      * @param array $filter
      * @return array
      */
-    public function getProductList(array $filter = array())
+    public function getProductList(array $filter = [])
     {
         return MoltinProduct::Search($filter);
     }

@@ -2,10 +2,11 @@
 
 namespace KickAss\Moltin\Bridge\Moltin;
 
+use KickAss\Commerce\Application\ProductInterface;
 use Moltin\SDK\Facade\Product as MoltinProduct;
 use KickAss\Commerce\Product\Exception\ProductNotFoundException as ProductException;
 
-class Product implements \KickAss\Commerce\Application\ProductInterface
+class Product implements ProductInterface
 {
     /**
      * @param array $filter

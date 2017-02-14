@@ -27,8 +27,9 @@ class Product implements ProductInterface
     }
 
     /**
-     * @param int string $slug
-     * @return array
+     * @param string $attribute
+     * @param string $value
+     * @return mixed
      */
     public function getProductItemByAttribute(string $attribute, string $value)
     {

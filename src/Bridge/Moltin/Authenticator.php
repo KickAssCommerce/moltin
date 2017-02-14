@@ -2,17 +2,18 @@
 
 namespace KickAss\Moltin\Bridge\Moltin;
 
+use KickAss\Commerce\Application\AuthenticatorInterface;
+use KickAss\Commerce\Authentication\Exception\FailedToAuthenticateException;
 use Moltin\SDK\Facade\Moltin as Moltin;
 
-class Authenticator implements \KickAss\Commerce\Application\AuthenticatorInterface
+class Authenticator implements AuthenticatorInterface
 {
     /**
      * @return bool
-     * @throws \KickAss\Commerce\Exception\FailedToAuthenticateException
+     * @throws FailedToAuthenticateException
      */
     public function authenticate()
     {
-        // Authenticate credentials
         $result = Moltin::Authenticate(
             'ClientCredentials',
             [
@@ -22,7 +23,7 @@ class Authenticator implements \KickAss\Commerce\Application\AuthenticatorInterf
         );
 
         if ($result === false) {
-            throw new \KickAss\Commerce\Authentication\Exception\FailedToAuthenticateException();
+            throw new FailedToAuthenticateException();
         }
         return $result;
     }

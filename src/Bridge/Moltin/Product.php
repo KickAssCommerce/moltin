@@ -2,10 +2,11 @@
 
 namespace KickAss\Moltin\Bridge\Moltin;
 
+use KickAss\Commerce\Application\ProductInterface;
 use Moltin\SDK\Facade\Product as MoltinProduct;
 use KickAss\Commerce\Product\Exception\ProductNotFoundException as ProductException;
 
-class Product implements \KickAss\Commerce\Application\ProductInterface
+class Product implements ProductInterface
 {
     /**
      * @param array $filter
@@ -26,8 +27,9 @@ class Product implements \KickAss\Commerce\Application\ProductInterface
     }
 
     /**
-     * @param int string $slug
-     * @return array
+     * @param string $attribute
+     * @param string $value
+     * @return mixed
      */
     public function getProductItemByAttribute(string $attribute, string $value)
     {
@@ -38,7 +40,7 @@ class Product implements \KickAss\Commerce\Application\ProductInterface
             }
         }
 
-        throw new ProductException("Product {$slug} not found");
+        throw new ProductException("Product not found");
     }
 
     /**

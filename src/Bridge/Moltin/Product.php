@@ -40,7 +40,7 @@ class Product implements ProductInterface
             }
         }
 
-        throw new ProductException("Product {$slug} not found");
+        throw new ProductException("Product not found");
     }
 
     /**
